@@ -1,0 +1,43 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PostSystem</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="text/javascript" src="../javascript/jquery.lib.js"></script>
+  <script type="text/javascript" src="../javascript/post-jquery.js"></script>
+</head>
+<body>
+  <div class="container div-center">
+    <h1 class="text-center">Poste aqui seu comentário!</h1>
+      <form class="gray-box">
+        <div class="toasts"></div>
+        <strong>Comentário</strong>
+        <br />
+        <textarea class="max-width" type="text" id="content" name="content" value="" rows="10"></textarea>
+        <br/>
+        <strong>Nome</strong>
+        <br/>
+        <input type="text" class="max-width" name="firstname" id="firstname">
+        <br/>
+        <strong>Sobrenome</strong>
+        <br/>
+        <input type="text" style="margin-bottom: 1em;" class="max-width" name="lastname" id="lastname">
+        <br/>
+        <button type="button" class="max-width" onclick="Posts.add();">Postar</button>
+      </form>
+      <section>
+        <div class="gray-box">
+          <strong>Pesquisar por conteúdo</strong>
+          <br />
+          <input style="width: 70%;" type="text" name="buscaTexto" id="buscaTexto">
+          <button style="width: 28%;" type="button" onclick="Posts.buscar(this);">Buscar</button>
+        </div>
+        <h2>Comentários</h2>
+        <div id="comments">
+          
+        </div>
+      </section>
+  </div>
+</body>
+</html>

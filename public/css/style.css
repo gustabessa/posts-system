@@ -1,0 +1,90 @@
+body {
+  background-color: mediumturquoise;
+}
+
+html {
+  font-family: monospace;
+}
+
+.edit, .save {
+  margin-right: 5px;
+}
+
+.remove:hover {
+  background-color: tomato;
+}
+
+.edit:hover {
+  background-color: palegoldenrod;
+  color: black;
+}
+
+.save:hover {
+  background-color: yellowgreen;
+}
+
+.hidden {
+  display: none;
+}
+
+button {
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: slategrey;
+  color: whitesmoke;
+}
+
+textarea#content {
+  resize: none;
+  margin-bottom: 2em;
+}
+
+textarea.content {
+  border: none;
+  width: 100%;
+  resize: none;
+}
+
+textarea.content:disabled {
+  background-color: transparent;
+}
+
+.comment {
+  background-color: whitesmoke;
+  border-radius: 5px;
+  border: solid 1px;
+  padding: 5px;
+}
+
+.gray-box {
+  background-color: whitesmoke;
+  border-radius: 5px;
+  border: solid 1px;
+  padding: 5px;
+}
+
+.container {
+  width: 70vw;
+  padding: 15px;
+}
+
+.toast-success{
+  padding: 0;
+  background-color: yellowgreen;
+  color: black;
+  margin-bottom: 1em;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.div-center {
+  margin: 0 auto;
+}
+
+.max-width {
+  width: 100%;
+}
