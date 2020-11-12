@@ -59,9 +59,12 @@ exports.search = (req, res) => {
   Post.findAll({
     include: User,
     where: {
-    content: {
-      [Op.like]: '%' + req.body.content + '%'
-    }
+      content: db.sequelize.where(
+        db.sequelize.fn('upper', db.sequelize.col('content')),
+        {
+          [Op.like]: '%' + req.body.content.toUpperCase() + '%'
+        }
+      )
   }
 },).then(data => {
     res.send(data)
