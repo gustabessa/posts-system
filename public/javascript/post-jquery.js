@@ -4,6 +4,7 @@ const Posts = {
     $('#content').val('')
     $('#firstname').val('')
     $('#lastname').val('')
+    onChangedUser(null)
 
     var toast = $('<div></div>').attr('class', 'max-width gray-box toast-success').attr('id', 'toast')
     var message = $('<p></p>').attr('class', 'text-center').html('Post inserido com sucesso!')
@@ -228,8 +229,7 @@ const Users = {
   },
 }
 
-const onChangedUser = () => {
-  var selectVal = $('#userlist').val()
+const onChangedUser = (selectVal) => {
   
   if (selectVal && selectVal != null && selectVal != 'null') {
     $('#firstname').val('')
