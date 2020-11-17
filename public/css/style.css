@@ -2,7 +2,7 @@ body {
   background-color: mediumturquoise;
 }
 
-html {
+html, input, button, select, option {
   font-family: monospace;
 }
 
