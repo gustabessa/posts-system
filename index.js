@@ -13,7 +13,7 @@ app.get('/', (req, res)=>{
 })
 
 db.sequelize.sync({alter: true}).then(()=>{
-  console.log('Deu certo CREATE/DROP')})
+  console.log('Sincronizado com sucesso!')})
   .catch(console.log)
 
 require('./src/user/routes')(app)

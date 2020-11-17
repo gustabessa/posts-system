@@ -11,6 +11,7 @@ Post.init({
   }
 }, {sequelize, modelName: "posts"})
 
+User.Post = User.hasMany(Post)
 Post.User = Post.belongsTo(User);
 
 module.exports = Post

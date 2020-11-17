@@ -17,10 +17,15 @@ const Posts = {
   },
 
   add: () => {
+
+    var user = $('#userlist').find(':selected')
+    var id = $(user).attr('id')?.replace('user-', '')
+
     var t = {}
     t.content = $('#content').val()
     t.firstname = $('#firstname').val()
     t.lastname = $('#lastname').val()
+    t.userId = id
 
     $.ajax({
       type: 'POST',
@@ -29,7 +34,8 @@ const Posts = {
       dataType: 'json',
       success: data => {
         Posts.addSuccess();
-        Posts.template(data);
+        Users.findAll();
+        Posts.findAll();
       }
     })
 
@@ -185,8 +191,58 @@ const Posts = {
   }
 }
 
+const Users = {
+  findAll: () => {
+    $.ajax({
+      type: 'GET',
+      url: '/usuarios',
+      dataType: 'json',
+      success: Users.fillSelectArray,
+      error: () => {
+        console.log('Ocorreu um erro!');
+      }
+    })
+  },
 
+  fillSelectArray: arr => {
+    Users.limparTodos()
+    arr.forEach(user => {
+      Users.fillSelect(user)
+    });
+  },
+
+  fillSelect: data => {
+
+    var select = $('#userlist')
+    var option = $('<option></option>').attr('id', 'user-' + data.id).text(data.firstname + ' ' + data.lastname)
+
+    $(select).append(option)
+  }, 
+
+  limparTodos: () => {
+    let select = $('#userlist')[0]
+    
+    while (select.children[1]) {
+      select.removeChild(select.children[1]);
+    }
+  },
+}
+
+const onChangedUser = () => {
+  var selectVal = $('#userlist').val()
+  
+  if (selectVal && selectVal != null && selectVal != 'null') {
+    $('#firstname').val('')
+    $('#lastname').val('')
+    $('#firstname').prop('disabled', true)
+    $('#lastname').prop('disabled', true)
+  } else {
+    $('#firstname').prop('disabled', false)
+    $('#lastname').prop('disabled', false)
+  }
+}
 
 $(document).ready(() => {
   Posts.findAll();
+  Users.findAll();
 })
