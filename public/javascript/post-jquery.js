@@ -36,6 +36,7 @@ const Posts = {
       success: data => {
         Posts.addSuccess();
         Users.findAll();
+        Posts.limparTodos();
         Posts.findAll();
       }
     })
